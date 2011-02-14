@@ -325,12 +325,24 @@ void setup()
 	}
 }
 
+char message[141] = " HELLO ";
+int messageLength = 7;
+
 void loop()
 {
-	char* sprites[7];
-	stringToSprites(7, " HELLO ", sprites);
+	int available = Serial.available();
+	if (available) {
+		int i;
+		for (i = 0; i < available; i++) {
+			message[i] = Serial.read();
+		}
+		message[i] = NULL;
+		messageLength = i;
+	}
+	char* sprites[messageLength];
+	stringToSprites(message, sprites);
 	scrollLeft(
-		7,
+		messageLength,
 		sprites,
 		500
 	);
@@ -407,8 +419,10 @@ char* charToSprite(char c) {
 	return ALPHABET[c - 65];
 }
 
-void stringToSprites(int length, char s[], char** sprites) {
-	for (int i = 0; i < length; i++) {
+void stringToSprites(char s[], char** sprites) {
+	int i = 0;
+	while(s[i] != NULL) {
 		sprites[i] = charToSprite(s[i]);
+		i++;
 	}
 }

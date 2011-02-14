@@ -1,6 +1,6 @@
 
 
-int pauseDelay = 2; // the number of milliseconds to display each scanned line
+int pauseDelay = 500; // the number of microseconds to display each scanned line
 
 // Pin Definitions
 // An Array defining which pin each row is attached to
@@ -10,7 +10,7 @@ int rowA[] = {9, 8, 7, 6, 5, 4, 3, 2};
 // (columns are common cathode (drive LOW))
 int colA[] = {10, 11, 12, 13, 14, 15, 16, 17};
 
-char smiley[] = {
+char _SMILEY[] = {
 	B00111100,
 	B01000010,
 	B10100101,
@@ -21,7 +21,298 @@ char smiley[] = {
 	B00111100
 };
 
-char blank[] = {0, 0, 0, 0, 0, 0, 0, 0};
+char _BLANK[] = {0, 0, 0, 0, 0, 0, 0, 0};
+
+// The alphabet
+// Each Charachter is an 8 x 8 bitmap where 1 is on and 0 if off
+char _A[] = {
+	B00010000,
+	B00101000,
+	B01000100,
+	B10000010,
+	B11111110,
+	B10000010,
+	B10000010,
+	B00000000
+};
+
+char _B[] = {
+	B11111100,
+	B01000010,
+	B01000010,
+	B01111100,
+	B01000010,
+	B01000010,
+	B11111100,
+	B00000000
+};
+
+char _C[] = {
+	B00111110,
+	B01000000,
+	B10000000,
+	B10000000,
+	B10000000,
+	B01000000,
+	B00111110,
+	B00000000
+};
+
+char _D[] = {
+	B11111000,
+	B01000100,
+	B01000010,
+	B01000010,
+	B01000010,
+	B01000100,
+	B11111000,
+	B00000000
+};
+
+char _E[] = {
+	B11111110,
+	B10000000,
+	B10000000,
+	B11111000,
+	B10000000,
+	B10000000,
+	B11111110,
+	B00000000
+};
+
+char _F[] = {
+	B11111110,
+	B10000000,
+	B10000000,
+	B11111000,
+	B10000000,
+	B10000000,
+	B10000000,
+	B00000000
+};
+
+char _G[] = {
+	B00111110,
+	B01000000,
+	B10000000,
+	B10011110,
+	B10000010,
+	B01000010,
+	B00111110,
+	B00000000
+};
+
+char _H[] = {
+	B10000010,
+	B10000010,
+	B10000010,
+	B11111110,
+	B10000010,
+	B10000010,
+	B10000010,
+	B00000000
+};
+
+char _I[] = {
+	B11111110,
+	B00010000,
+	B00010000,
+	B00010000,
+	B00010000,
+	B00010000,
+	B11111110,
+	B00000000
+};
+
+char _J[] = {
+	B00011110,
+	B00000010,
+	B00000010,
+	B00000010,
+	B00000010,
+	B10000010,
+	B01111100,
+	B00000000
+};
+
+char _K[] = {
+	B10000110,
+	B10001000,
+	B10010000,
+	B11100000,
+	B10010000,
+	B10001000,
+	B10000110,
+	B00000000
+};
+
+char _L[] = {
+	B10000000,
+	B10000000,
+	B10000000,
+	B10000000,
+	B10000000,
+	B10000000,
+	B11111110,
+	B00000000
+};
+
+char _M[] = {
+	B11101100,
+	B10010010,
+	B10010010,
+	B10010010,
+	B10010010,
+	B10010010,
+	B10010010,
+	B00000000
+};
+
+char _N[] = {
+	B10000010,
+	B11000010,
+	B10100010,
+	B10010010,
+	B10001010,
+	B10000110,
+	B10000010,
+	B00000000
+};
+
+char _O[] = {
+	B00111000,
+	B01000100,
+	B10000010,
+	B10010010,
+	B10000010,
+	B01000100,
+	B00111000,
+	B00000000
+};
+
+char _P[] = {
+	B11111100,
+	B01000010,
+	B01000010,
+	B01111100,
+	B01000000,
+	B01000000,
+	B01000000,
+	B00000000
+};
+
+char _Q[] = {
+	B00111000,
+	B01000100,
+	B10000010,
+	B10000010,
+	B10001010,
+	B01000100,
+	B00111010,
+	B00000000
+};
+
+char _R[] = {
+	B11111100,
+	B01000010,
+	B01000010,
+	B01011100,
+	B01001000,
+	B01000100,
+	B01000010,
+	B00000000
+};
+
+char _S[] = {
+	B01111110,
+	B10000000,
+	B10000000,
+	B01111100,
+	B00000010,
+	B00000010,
+	B11111100,
+	B00000000
+};
+
+char _T[] = {
+	B11111110,
+	B00010000,
+	B00010000,
+	B00010000,
+	B00010000,
+	B00010000,
+	B00010000,
+	B00000000
+};
+
+char _U[] = {
+	B10000010,
+	B10000010,
+	B10000010,
+	B10000010,
+	B10000010,
+	B10000010,
+	B01111100,
+	B00000000
+};
+
+char _V[] = {
+	B10000010,
+	B10000010,
+	B10000010,
+	B10000010,
+	B01000100,
+	B00101000,
+	B00010000,
+	B00000000
+};
+
+char _W[] = {
+	B10000010,
+	B10010010,
+	B10010010,
+	B10010010,
+	B10010010,
+	B10010010,
+	B01101100,
+	B00000000
+};
+
+char _X[] = {
+	B10000010,
+	B01000100,
+	B00101000,
+	B00010000,
+	B00101000,
+	B01000100,
+	B10000010,
+	B00000000
+};
+
+char _Y[] = {
+	B10000010,
+	B01000100,
+	B00101000,
+	B00010000,
+	B00010000,
+	B00010000,
+	B00010000,
+	B00000000
+};
+
+char _Z[] = {
+	B11111110,
+	B00000100,
+	B00001000,
+	B01111100,
+	B00100000,
+	B01000000,
+	B11111110,
+	B00000000
+};
+
+char* ALPHABET[] = {_A, _B, _C, _D, _E, _F, _G, _H, _I, _J, _K, _L, _M,
+                    _N, _O, _P, _Q, _R, _S, _T, _U, _V, _W, _X, _Y, _Z};
 
 void setup()
 { 
@@ -36,26 +327,27 @@ void setup()
 
 void loop()
 {
+	char* sprites[7];
+	stringToSprites(7, " HELLO ", sprites);
 	scrollLeft(
-		3,
-		(char*[]) {
-			smiley,
-			blank,
-			smiley
-		},
-		1000
+		7,
+		sprites,
+		500
 	);
 }
 
 // Dirty row shower
 // Technically there's a flicker of the last columns left on, but hopefully too quick to see
-// Clears the row, but not the columns
-int flickerRow(int row, char columns) {
+void flickerRow(int row, char columns) {
 	digitalWrite(rowA[row], HIGH);
 	for (int i = 0; i < 8; i++) {
-		digitalWrite(colA[i], ((columns >> i) & 1) ? LOW : HIGH);
+		if ((columns >> i) & 1) {
+			digitalWrite(colA[i], LOW);
+			delayMicroseconds(pauseDelay);
+			digitalWrite(colA[i], HIGH);
+		}
+		else digitalWrite(colA[i], HIGH);
 	}
-	delay(pauseDelay);
 	digitalWrite(rowA[row], LOW);
 }
 
@@ -68,20 +360,16 @@ void flickerSprite(char sprite[]) {
 
 // Flicker some sprites for a while
 // Will block the thread
-// Most accurate times are multiples of pauseDelay * 9
-// (that's right, other times are not accurate, but what is these days)
 void showSprite(long duration, char sprite[]) {
-	long totalTime = 0;
-	int flickerTime = pauseDelay * 9;
-	while (totalTime < duration) {
+	long startTime = millis();
+	while (millis() - startTime < duration) {
 		flickerSprite(sprite);
-		delay(pauseDelay);
-		totalTime += flickerTime;
+		delayMicroseconds(pauseDelay);
 	}
 }
 
 // One sprite to the next
-void flipbook(int frames, int frameDuration, char *sprites[]) {
+void flipbook(int frames, int frameDuration, char* sprites[]) {
 	for (int i = 0; i < frames; i++) {
 		showSprite(frameDuration, sprites[i]);
 	}
@@ -89,7 +377,7 @@ void flipbook(int frames, int frameDuration, char *sprites[]) {
 
 // Scrolling sprites
 // Whoa, it makes the intermediate sprites
-void scrollLeft(int spriteCount, char *sprites[], long oneScrollTime) {
+void scrollLeft(int spriteCount, char* sprites[], long oneScrollTime) {
 	// So wonderfully inaccurate at small values
 	// Remember how showSprite works too, hoo boy
 	long frameDuration = oneScrollTime / 8;
@@ -111,5 +399,16 @@ void scrollLeft(int spriteCount, char *sprites[], long oneScrollTime) {
 			// We've got a sprite, let's show it
 			showSprite(frameDuration, sprite);
 		}
+	}
+}
+
+char* charToSprite(char c) {
+	if (c == ' ') return _BLANK;
+	return ALPHABET[c - 65];
+}
+
+void stringToSprites(int length, char s[], char** sprites) {
+	for (int i = 0; i < length; i++) {
+		sprites[i] = charToSprite(s[i]);
 	}
 }

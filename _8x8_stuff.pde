@@ -28,8 +28,8 @@ void setup()
 	}
 }
 
-char message[141] = " HELLO ";
-int messageLength = 7;
+char message[141] = "It's tricky to rock a rhyme to rock a rhyme that's right on time it's tricky. It's tricky, tricky, tricky.";
+int messageLength = 106;
 
 void loop()
 {
@@ -50,7 +50,6 @@ void loop()
 }
 
 // Dirty row shower
-// Technically there's a flicker of the last columns left on, but hopefully too quick to see
 void flickerRow(int row, byte columns) {
 	digitalWrite(rowA[row], HIGH);
 	for (int i = 0; i < 8; i++) {

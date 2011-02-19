@@ -28,7 +28,8 @@ void setup()
 	}
 }
 
-char message[141] = "It's tricky to rock a rhyme to rock a rhyme that's right on time it's tricky. It's tricky, tricky, tricky.";
+char message[141] = "It's tricky to rock a rhyme to rock a rhyme that's right "
+                    "on time it's tricky. It's tricky, tricky, tricky.";
 int messageLength = 106;
 
 void loop()
